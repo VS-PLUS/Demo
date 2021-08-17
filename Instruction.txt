@@ -1,0 +1,23 @@
+1. Go to the folder and do 
+    truffle Init
+2. Create migration script by copying 1_inital_migraion.js
+3. Create Network Configration
+      geth: {
+      host: "127.0.0.1",     // Localhost (default: none)
+      port: 30303,            // Standard Ethereum port (default: none)
+      network_id: "2019",       // Any network (default: none)       
+     }
+   >  geth --datadir ./datadir --networkid 2019 --rpc --rpcport 30303 --allow-insecure-unlock console
+4. Copy Smart Contract in smart contract folder
+5. Compile Smart Contract
+      truffle compile
+6. Unlock Addresses on Network
+     >   personal.unlockAccount(‘Address of 1st Account’, ‘password of the account’, 0)
+     >   miner.start()
+7. Deploy Smart Contract:
+    truffle migrate --network geth
+8. Go to truffle console to play with the application
+    truffle console --network geth
+    let voting = await Voting.deployed()
+    voting.startVoting()
+
